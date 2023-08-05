@@ -9,13 +9,19 @@
 /* Begin PBXBuildFile section */
 		DD42F42B2A7E8CB800248C2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F42A2A7E8CB800248C2A /* AppDelegate.swift */; };
 		DD42F42D2A7E8CB800248C2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F42C2A7E8CB800248C2A /* SceneDelegate.swift */; };
-		DD42F42F2A7E8CB800248C2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F42E2A7E8CB800248C2A /* ViewController.swift */; };
 		DD42F4322A7E8CB800248C2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD42F4302A7E8CB800248C2A /* Main.storyboard */; };
 		DD42F4342A7E8CB900248C2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD42F4332A7E8CB900248C2A /* Assets.xcassets */; };
 		DD42F4372A7E8CB900248C2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD42F4352A7E8CB900248C2A /* LaunchScreen.storyboard */; };
 		DD42F4422A7E8CBA00248C2A /* MortgageAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F4412A7E8CBA00248C2A /* MortgageAppTests.swift */; };
 		DD42F44C2A7E8CBA00248C2A /* MortgageAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F44B2A7E8CBA00248C2A /* MortgageAppUITests.swift */; };
 		DD42F44E2A7E8CBA00248C2A /* MortgageAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F44D2A7E8CBA00248C2A /* MortgageAppUITestsLaunchTests.swift */; };
+		DD42F45D2A7E8CFC00248C2A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F45C2A7E8CFC00248C2A /* Constants.swift */; };
+		DD42F4602A7E8D5100248C2A /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F45F2A7E8D5100248C2A /* InitialVC.swift */; };
+		DD42F4622A7E8D5B00248C2A /* ResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F4612A7E8D5B00248C2A /* ResultsVC.swift */; };
+		DD42F4642A7E8D8600248C2A /* Calculators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F4632A7E8D8600248C2A /* Calculators.swift */; };
+		DD42F4662A7E8D9100248C2A /* LoanDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F4652A7E8D9100248C2A /* LoanDetails.swift */; };
+		DD42F4682A7E8DA100248C2A /* OverResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F4672A7E8DA100248C2A /* OverResults.swift */; };
+		DD42F46A2A7E8DAB00248C2A /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F4692A7E8DAB00248C2A /* Results.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +45,6 @@
 		DD42F4272A7E8CB800248C2A /* MortgageApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MortgageApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD42F42A2A7E8CB800248C2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD42F42C2A7E8CB800248C2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DD42F42E2A7E8CB800248C2A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DD42F4312A7E8CB800248C2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD42F4332A7E8CB900248C2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD42F4362A7E8CB900248C2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +54,13 @@
 		DD42F4472A7E8CBA00248C2A /* MortgageAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MortgageAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD42F44B2A7E8CBA00248C2A /* MortgageAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageAppUITests.swift; sourceTree = "<group>"; };
 		DD42F44D2A7E8CBA00248C2A /* MortgageAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DD42F45C2A7E8CFC00248C2A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DD42F45F2A7E8D5100248C2A /* InitialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
+		DD42F4612A7E8D5B00248C2A /* ResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsVC.swift; sourceTree = "<group>"; };
+		DD42F4632A7E8D8600248C2A /* Calculators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculators.swift; sourceTree = "<group>"; };
+		DD42F4652A7E8D9100248C2A /* LoanDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanDetails.swift; sourceTree = "<group>"; };
+		DD42F4672A7E8DA100248C2A /* OverResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverResults.swift; sourceTree = "<group>"; };
+		DD42F4692A7E8DAB00248C2A /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +113,11 @@
 			children = (
 				DD42F42A2A7E8CB800248C2A /* AppDelegate.swift */,
 				DD42F42C2A7E8CB800248C2A /* SceneDelegate.swift */,
-				DD42F42E2A7E8CB800248C2A /* ViewController.swift */,
-				DD42F4302A7E8CB800248C2A /* Main.storyboard */,
+				DD42F45E2A7E8D0500248C2A /* Model */,
+				DD42F45A2A7E8CD200248C2A /* View */,
+				DD42F45B2A7E8CE100248C2A /* ViewModel */,
 				DD42F4332A7E8CB900248C2A /* Assets.xcassets */,
-				DD42F4352A7E8CB900248C2A /* LaunchScreen.storyboard */,
+				DD42F45C2A7E8CFC00248C2A /* Constants.swift */,
 				DD42F4382A7E8CB900248C2A /* Info.plist */,
 			);
 			path = MortgageApp;
@@ -125,6 +138,35 @@
 				DD42F44D2A7E8CBA00248C2A /* MortgageAppUITestsLaunchTests.swift */,
 			);
 			path = MortgageAppUITests;
+			sourceTree = "<group>";
+		};
+		DD42F45A2A7E8CD200248C2A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD42F4352A7E8CB900248C2A /* LaunchScreen.storyboard */,
+				DD42F4302A7E8CB800248C2A /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD42F45B2A7E8CE100248C2A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD42F45F2A7E8D5100248C2A /* InitialVC.swift */,
+				DD42F4612A7E8D5B00248C2A /* ResultsVC.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DD42F45E2A7E8D0500248C2A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD42F4632A7E8D8600248C2A /* Calculators.swift */,
+				DD42F4652A7E8D9100248C2A /* LoanDetails.swift */,
+				DD42F4672A7E8DA100248C2A /* OverResults.swift */,
+				DD42F4692A7E8DAB00248C2A /* Results.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +300,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD42F42F2A7E8CB800248C2A /* ViewController.swift in Sources */,
+				DD42F4602A7E8D5100248C2A /* InitialVC.swift in Sources */,
+				DD42F4622A7E8D5B00248C2A /* ResultsVC.swift in Sources */,
 				DD42F42B2A7E8CB800248C2A /* AppDelegate.swift in Sources */,
+				DD42F46A2A7E8DAB00248C2A /* Results.swift in Sources */,
+				DD42F4682A7E8DA100248C2A /* OverResults.swift in Sources */,
+				DD42F4662A7E8D9100248C2A /* LoanDetails.swift in Sources */,
+				DD42F4642A7E8D8600248C2A /* Calculators.swift in Sources */,
 				DD42F42D2A7E8CB800248C2A /* SceneDelegate.swift in Sources */,
+				DD42F45D2A7E8CFC00248C2A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
