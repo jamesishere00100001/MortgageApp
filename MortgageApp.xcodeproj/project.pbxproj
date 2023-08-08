@@ -22,6 +22,8 @@
 		DD42F4662A7E8D9100248C2A /* LoanDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F4652A7E8D9100248C2A /* LoanDetails.swift */; };
 		DD42F4682A7E8DA100248C2A /* OverResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F4672A7E8DA100248C2A /* OverResults.swift */; };
 		DD42F46A2A7E8DAB00248C2A /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F4692A7E8DAB00248C2A /* Results.swift */; };
+		DD6E44412A82477C009D16AB /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E44402A82477C009D16AB /* InfoVC.swift */; };
+		DDD05C502A826AEA00C85FC8 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD05C4F2A826AEA00C85FC8 /* Info.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		DD42F4652A7E8D9100248C2A /* LoanDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanDetails.swift; sourceTree = "<group>"; };
 		DD42F4672A7E8DA100248C2A /* OverResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverResults.swift; sourceTree = "<group>"; };
 		DD42F4692A7E8DAB00248C2A /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		DD6E44402A82477C009D16AB /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
+		DDD05C4F2A826AEA00C85FC8 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				DD42F45F2A7E8D5100248C2A /* InitialVC.swift */,
+				DD6E44402A82477C009D16AB /* InfoVC.swift */,
 				DD42F4612A7E8D5B00248C2A /* ResultsVC.swift */,
 			);
 			path = ViewModel;
@@ -163,6 +168,7 @@
 			children = (
 				DD42F4632A7E8D8600248C2A /* Calculators.swift */,
 				DD42F4652A7E8D9100248C2A /* LoanDetails.swift */,
+				DDD05C4F2A826AEA00C85FC8 /* Info.swift */,
 				DD42F4672A7E8DA100248C2A /* OverResults.swift */,
 				DD42F4692A7E8DAB00248C2A /* Results.swift */,
 			);
@@ -304,11 +310,13 @@
 				DD42F4622A7E8D5B00248C2A /* ResultsVC.swift in Sources */,
 				DD42F42B2A7E8CB800248C2A /* AppDelegate.swift in Sources */,
 				DD42F46A2A7E8DAB00248C2A /* Results.swift in Sources */,
+				DD6E44412A82477C009D16AB /* InfoVC.swift in Sources */,
 				DD42F4682A7E8DA100248C2A /* OverResults.swift in Sources */,
 				DD42F4662A7E8D9100248C2A /* LoanDetails.swift in Sources */,
 				DD42F4642A7E8D8600248C2A /* Calculators.swift in Sources */,
 				DD42F42D2A7E8CB800248C2A /* SceneDelegate.swift in Sources */,
 				DD42F45D2A7E8CFC00248C2A /* Constants.swift in Sources */,
+				DDD05C502A826AEA00C85FC8 /* Info.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

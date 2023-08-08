@@ -10,6 +10,7 @@ import Foundation
 struct K {
     
     static let resultsSegue             = "goToResultsVC"
+    static let infoSegue                = "infoCard"
     
     struct Cell {
         
@@ -21,5 +22,11 @@ struct K {
         static let revisedTerm          = "revisedTerm"
         static let currentPlusOver      = "currentPlusOver"
         static let currentPlusOverAfter = "currentPlusOverAfter"
+    }
+    
+    struct Info {
+        
+        static let titleText  = ""
+        static let detailText = "Mortgage amount : This the total sum borrowed from the lender at the beginning of the deal. E.g. the amount you paid for the                        property minus any deposit amount contributed."
     }
 }

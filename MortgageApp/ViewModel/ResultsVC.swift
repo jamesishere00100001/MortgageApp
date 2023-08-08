@@ -74,6 +74,21 @@ class ResultsVC: UITableViewController {
         return "£error"
     }
     
+    //MARK: - Share button - Take screenshot and present sharesheet
+    
+    @IBAction func shareButtonPressed(_ sender: UIBarButtonItem) {
+        
+        let bounds = UIScreen.main.bounds
+        UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)
+        self.view.drawHierarchy(in: bounds, afterScreenUpdates: false)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let activityViewController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+        self.present(activityViewController, animated: true)
+    }
+    
     //MARK: - Tableview delegate and datasource
     
     override func numberOfSections(in tableView: UITableView) -> Int {

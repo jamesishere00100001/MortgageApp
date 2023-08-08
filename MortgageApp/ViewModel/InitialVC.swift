@@ -23,6 +23,9 @@ class InitialVC: UIViewController {
     private var userDetails     = LoanDetails()
     private var userResults     = Results()
     private var userResultsOver = OverResults()
+    
+    private var info            = Info()
+    private var infoData        : [String : String] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +69,7 @@ class InitialVC: UIViewController {
         userDetails.mortgageLoan            = checkString(mortgageAmountField.text)
         userDetails.initialInterestRate     = checkString(initialInterestField.text)
         userDetails.intialRateTerm          = checkString(initialRateTerm.text)
-        userDetails.standardRate            = checkString(initialInterestField.text)
+        userDetails.standardRate            = checkString(standardInterestField.text)
         userDetails.mortgageTerm            = checkString(termField.text)
         userDetails.proposedOverPayment     = checkString(proposedOverPaymentField.text)
     }
@@ -85,7 +88,7 @@ class InitialVC: UIViewController {
         self.present(alert, animated: true)
     }
     
-    //MARK: - Go! button pressed segue
+    //MARK: - Go! button
     
     @IBAction func goButtonPressed(_ sender: UIButton) {
         
@@ -100,21 +103,81 @@ class InitialVC: UIViewController {
         self.performSegue(withIdentifier: K.resultsSegue, sender: self)
     }
     
+    func calculateResults(userData data: LoanDetails) -> Results {
+        return calculator.paymentCalc(details: data)
+    }
+    
+
+    //MARK: - Reset button
+    
+    @IBAction func resetButtonPressed(_ sender: UIBarButtonItem) {
+        
+        userDetails     = LoanDetails()
+        userResults     = Results()
+        userResultsOver = OverResults()
+        
+        mortgageAmountField.text        = ""
+        initialInterestField.text       = ""
+        initialRateTerm.text            = ""
+        standardInterestField.text      = ""
+        termField.text                  = ""
+        proposedOverPaymentField.text   = ""
+    }
+    
+    //MARK: - Info buttons
+    
+    @IBAction func mortgageAmountInfo(_ sender: UIButton) {
+        infoData = info.infoRequested(info: "mortgageAmount")
+        
+        self.performSegue(withIdentifier: K.infoSegue, sender: sender)
+    }
+    
+    @IBAction func mortgageTermInfo(_ sender: UIButton) {
+        infoData = info.infoRequested(info: "mortgageTerm")
+        
+        self.performSegue(withIdentifier: K.infoSegue, sender: sender)
+    }
+    
+    @IBAction func initialInterestInfo(_ sender: UIButton) {
+        infoData = info.infoRequested(info: "initialRate")
+        
+        self.performSegue(withIdentifier: K.infoSegue, sender: sender)
+    }
+    
+    @IBAction func initialTerm(_ sender: UIButton) {
+        infoData = info.infoRequested(info: "initialTerm")
+        
+        self.performSegue(withIdentifier: K.infoSegue, sender: sender)
+    }
+    
+    @IBAction func standardRate(_ sender: UIButton) {
+        infoData = info.infoRequested(info: "standardRate")
+        
+        self.performSegue(withIdentifier: K.infoSegue, sender: sender)
+    }
+    
+    @IBAction func overpayment(_ sender: UIButton) {
+        infoData = info.infoRequested(info: "overpayment")
+        
+        self.performSegue(withIdentifier: K.infoSegue, sender: sender)
+    }
+    
+    //MARK: - Prepare for segues
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.resultsSegue {
             let destinationVC = segue.destination as! ResultsVC
-            destinationVC.userDetails = self.userDetails
-            destinationVC.userResults = self.userResults
-
-            destinationVC.userResultsOver = self.userResultsOver
+            
+            destinationVC.userDetails       = self.userDetails
+            destinationVC.userResults       = self.userResults
+            destinationVC.userResultsOver   = self.userResultsOver
+        } else if segue.identifier == K.infoSegue {
+                let destinationVC = segue.destination as! InfoVC
+                
+                destinationVC.info = self.infoData
         }
     }
     
-    func calculateResults(userData data: LoanDetails) -> Results {
-        return calculator.paymentCalc(details: data)
-        
-    }
-
     //MARK: - Soft keyboard scroll func - Works in conjuction with notificationCentre set up in viewDidLoad
     
     @objc func adjustForKeyboard(notification: Notification) {

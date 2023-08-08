@@ -3,15 +3,16 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Enter your details-->
+        <!--InitialVC-->
         <scene sceneID="mLw-Uf-N8D">
             <objects>
-                <viewController id="zi9-3d-3gw" customClass="InitialVC" customModule="MortgageApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zi9-3d-3gw" userLabel="InitialVC" customClass="InitialVC" customModule="MortgageApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1B9-Zq-XaZ" userLabel="Base view">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,97 +23,230 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igH-pY-zXf" userLabel="Main view">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="1000"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="center" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xwG-pa-3Ds" userLabel="Input VStack">
-                                                <rect key="frame" x="96" y="270" width="200" height="460"/>
+                                            <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xwG-pa-3Ds" userLabel="Input VStack">
+                                                <rect key="frame" x="32" y="32" width="329" height="572.33333333333337"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mortage amount £" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFd-ws-dXL">
-                                                        <rect key="frame" x="29.666666666666671" y="0.0" width="141" height="20.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" name="TextGreen"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pea-8Q-YMJ">
+                                                        <rect key="frame" x="44.666666666666686" y="0.0" width="240" height="34.333333333333336"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GF-PY-2rt">
+                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="34.333333333333336"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="40" id="qU8-eg-fGv"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain">
+                                                                    <imageReference key="image" image="info.circle" catalog="system" variableValue="0.80000000000000004"/>
+                                                                    <color key="baseForegroundColor" name="Text"/>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="mortgageAmountInfo:" destination="zi9-3d-3gw" eventType="touchUpInside" id="kOT-td-hf0"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mortage amount £" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFd-ws-dXL">
+                                                                <rect key="frame" x="45" y="0.0" width="195" height="34.333333333333336"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" name="Text"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="MM6-rc-KBI"/>
+                                                        </constraints>
+                                                    </stackView>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eQ0-at-DdW">
-                                                        <rect key="frame" x="0.0" y="28.333333333333343" width="200" height="34"/>
+                                                        <rect key="frame" x="64.666666666666686" y="42.333333333333343" width="200" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="NMv-2K-tkz"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mortgage term (years)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWB-vR-Zqp">
-                                                        <rect key="frame" x="14.333333333333329" y="70.333333333333343" width="171.33333333333337" height="20.333333333333329"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" name="TextGreen"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dlL-ob-mXm">
+                                                        <rect key="frame" x="44.666666666666686" y="84.333333333333343" width="240" height="34.333333333333343"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACB-NU-bwF">
+                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="34.333333333333336"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="40" id="sO5-Ja-QMw"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="info.circle" catalog="system">
+                                                                    <color key="baseForegroundColor" name="Text"/>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="mortgageTermInfo:" destination="zi9-3d-3gw" eventType="touchUpInside" id="tDE-3V-GPG"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mortgage term (years)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWB-vR-Zqp">
+                                                                <rect key="frame" x="45" y="0.0" width="195" height="34.333333333333336"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" name="Text"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="MQ0-zs-4EB"/>
+                                                        </constraints>
+                                                    </stackView>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tpA-Wl-hHR">
-                                                        <rect key="frame" x="0.0" y="98.666666666666657" width="200" height="34"/>
+                                                        <rect key="frame" x="64.666666666666686" y="126.66666666666669" width="200" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="C5C-J7-E3F"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initial interest rate %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7Y-tf-fp8">
-                                                        <rect key="frame" x="22.333333333333329" y="140.66666666666666" width="155.33333333333337" height="20.333333333333343"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" name="TextGreen"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TXR-zi-hSt">
+                                                        <rect key="frame" x="44.666666666666686" y="168.66666666666669" width="240" height="34.333333333333343"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGH-CG-Q5k">
+                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="34.333333333333336"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="40" id="Pns-oD-fL4"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="info.circle" catalog="system">
+                                                                    <color key="baseForegroundColor" name="Text"/>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="initialInterestInfo:" destination="zi9-3d-3gw" eventType="touchUpInside" id="orJ-Of-EbF"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initial interest rate %" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7Y-tf-fp8">
+                                                                <rect key="frame" x="45" y="0.0" width="195" height="34.333333333333336"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" name="Text"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="jG1-kP-oa2"/>
+                                                        </constraints>
+                                                    </stackView>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WYQ-Kk-ExT">
-                                                        <rect key="frame" x="0.0" y="169" width="200" height="34"/>
+                                                        <rect key="frame" x="64.666666666666686" y="211" width="200" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="DxZ-rR-Otp"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initial rate term (years)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbd-aN-njV" userLabel="Initial rate term (years)">
-                                                        <rect key="frame" x="14.333333333333329" y="211" width="171.33333333333337" height="20.333333333333343"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" name="TextGreen"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="flV-LQ-2I4">
+                                                        <rect key="frame" x="44.666666666666686" y="253.00000000000003" width="240" height="34.333333333333343"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HN5-UK-dp2">
+                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="34.333333333333336"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="40" id="ZYi-sB-Yg5"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="info.circle" catalog="system">
+                                                                    <color key="baseForegroundColor" name="Text"/>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="initialTerm:" destination="zi9-3d-3gw" eventType="touchUpInside" id="lju-WH-LWO"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initial rate term (years)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbd-aN-njV" userLabel="Initial rate term (years)">
+                                                                <rect key="frame" x="45" y="0.0" width="195" height="34.333333333333336"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" name="Text"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="85m-Ta-CIt"/>
+                                                        </constraints>
+                                                    </stackView>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VCM-Ft-fvH">
-                                                        <rect key="frame" x="0.0" y="239.33333333333331" width="200" height="34"/>
+                                                        <rect key="frame" x="64.666666666666686" y="295.33333333333331" width="200" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="HnM-ch-suh"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Standard interest rate %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bu6-ht-s7h">
-                                                        <rect key="frame" x="7.6666666666666714" y="281.33333333333331" width="185" height="20.333333333333314"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" name="TextGreen"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="f9i-2H-FRf">
+                                                        <rect key="frame" x="44.666666666666686" y="337.33333333333331" width="240" height="34.333333333333314"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBT-Sb-ETo">
+                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="34.333333333333336"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="40" id="1As-Ci-Gr7"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="info.circle" catalog="system">
+                                                                    <color key="baseForegroundColor" name="Text"/>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="standardRate:" destination="zi9-3d-3gw" eventType="touchUpInside" id="7g4-hR-ZZs"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Standard interest rate %" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bu6-ht-s7h">
+                                                                <rect key="frame" x="45" y="0.0" width="195" height="34.333333333333336"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" name="Text"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="LcZ-oA-UhD"/>
+                                                        </constraints>
+                                                    </stackView>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5fx-gW-YMy">
-                                                        <rect key="frame" x="0.0" y="309.66666666666669" width="200" height="34"/>
+                                                        <rect key="frame" x="64.666666666666686" y="379.66666666666663" width="200" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="R0f-Q1-yxH"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proposed overpayment £" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahd-KD-7bQ">
-                                                        <rect key="frame" x="4.3333333333333286" y="351.66666666666669" width="191.66666666666669" height="20.333333333333314"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" name="TextGreen"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CQv-ln-2xE">
+                                                        <rect key="frame" x="44.666666666666686" y="421.66666666666663" width="240" height="34.333333333333314"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q31-yZ-Mw1">
+                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="34.333333333333336"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="40" id="eEu-Hb-Mum"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="info.circle" catalog="system">
+                                                                    <color key="baseForegroundColor" name="Text"/>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="overpayment:" destination="zi9-3d-3gw" eventType="touchUpInside" id="rEW-aE-AEw"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proposed overpayment £" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahd-KD-7bQ">
+                                                                <rect key="frame" x="45" y="0.0" width="195" height="34.333333333333336"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" name="Text"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="Wlh-db-UX9"/>
+                                                        </constraints>
+                                                    </stackView>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ONW-g0-7XQ">
-                                                        <rect key="frame" x="0.0" y="380" width="200" height="34"/>
+                                                        <rect key="frame" x="64.666666666666686" y="464" width="200" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="kBS-la-lRa"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="go"/>
                                                     </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="spacer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1T9-fJ-Rjm">
+                                                        <rect key="frame" x="138.66666666666666" y="505.99999999999994" width="52" height="20.333333333333314"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSa-8A-LQB">
-                                                        <rect key="frame" x="0.0" y="422" width="200" height="38"/>
+                                                        <rect key="frame" x="64.666666666666686" y="534.33333333333337" width="200" height="38"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="200" id="hJu-JB-oJa"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="hJu-JB-oJa"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="gray">
@@ -124,8 +258,8 @@
                                                                     </attributes>
                                                                 </fragment>
                                                             </attributedString>
-                                                            <color key="baseForegroundColor" name="TextGreen"/>
-                                                            <color key="baseBackgroundColor" name="Accent colours"/>
+                                                            <color key="baseForegroundColor" name="Background"/>
+                                                            <color key="baseBackgroundColor" name="AccentColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="goButtonPressed:" destination="zi9-3d-3gw" eventType="touchUpInside" id="5n7-Fc-e2L"/>
@@ -136,10 +270,14 @@
                                         </subviews>
                                         <color key="backgroundColor" name="Background"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="xwG-pa-3Ds" secondAttribute="trailing" constant="32" id="J6I-cC-xMQ"/>
                                             <constraint firstAttribute="height" constant="1000" id="PJT-n1-rEH"/>
+                                            <constraint firstItem="xwG-pa-3Ds" firstAttribute="top" secondItem="igH-pY-zXf" secondAttribute="top" constant="32" id="UYL-OB-BTw"/>
+                                            <constraint firstItem="xwG-pa-3Ds" firstAttribute="leading" secondItem="igH-pY-zXf" secondAttribute="leading" constant="32" id="j5i-Sp-peS"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstItem="aNR-ia-afr" firstAttribute="bottom" secondItem="igH-pY-zXf" secondAttribute="bottom" id="1Bt-eu-1t1"/>
                                     <constraint firstItem="aNR-ia-afr" firstAttribute="trailing" secondItem="igH-pY-zXf" secondAttribute="trailing" id="Ma1-X1-v00"/>
@@ -164,7 +302,14 @@
                             <constraint firstItem="igH-pY-zXf" firstAttribute="width" secondItem="1B9-Zq-XaZ" secondAttribute="width" id="mub-hW-4tl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Enter your details" largeTitleDisplayMode="always" id="REQ-MY-O2g"/>
+                    <navigationItem key="navigationItem" title="Enter your details" largeTitleDisplayMode="always" id="REQ-MY-O2g">
+                        <barButtonItem key="rightBarButtonItem" title="Reset" id="6lw-JF-62F">
+                            <color key="tintColor" name="Text"/>
+                            <connections>
+                                <action selector="resetButtonPressed:" destination="zi9-3d-3gw" id="04F-FS-JWp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="goButton" destination="YSa-8A-LQB" id="BQO-ws-1NJ"/>
                         <outlet property="initialInterestField" destination="WYQ-Kk-ExT" id="nyj-jh-6iC"/>
@@ -175,11 +320,87 @@
                         <outlet property="standardInterestField" destination="5fx-gW-YMy" id="5Ca-34-gm4"/>
                         <outlet property="termField" destination="tpA-Wl-hHR" id="e5G-zx-69h"/>
                         <segue destination="zhl-nN-VpO" kind="show" identifier="goToResultsVC" id="c90-oU-lmv"/>
+                        <segue destination="YjH-fw-4kC" kind="presentation" identifier="infoCard" id="yNb-vU-0OM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xxi-gL-klW" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1999.2366412213739" y="-2.1126760563380285"/>
+        </scene>
+        <!--InfoVC-->
+        <scene sceneID="r1Q-UV-Qyv">
+            <objects>
+                <viewController id="YjH-fw-4kC" customClass="InfoVC" customModule="MortgageApp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Foh-ct-7g6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vfx-5B-2hX">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="skt-gV-Xi1"/>
+                                </constraints>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rah-CR-6bH">
+                                <rect key="frame" x="0.0" y="56" width="393" height="44"/>
+                                <color key="barTintColor" name="AccentColor"/>
+                                <items>
+                                    <navigationItem title="Info" id="YBy-M8-um1">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" changesSelectionAsPrimaryAction="YES" id="3vH-tR-ZU1">
+                                            <color key="tintColor" name="Text"/>
+                                            <connections>
+                                                <action selector="doneButtonPressed:" destination="YjH-fw-4kC" id="tp0-L0-eJ6"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IP6-Ii-EoH">
+                                <rect key="frame" x="32" y="100" width="329" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="PGj-9j-xtx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" name="Text"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SJ-L6-tG1">
+                                <rect key="frame" x="32" y="150" width="329" height="16.333333333333343"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" name="Text"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mT3-bK-aSz"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="4SJ-L6-tG1" firstAttribute="top" secondItem="IP6-Ii-EoH" secondAttribute="bottom" id="23c-Yg-MlQ"/>
+                            <constraint firstItem="Rah-CR-6bH" firstAttribute="centerX" secondItem="IP6-Ii-EoH" secondAttribute="centerX" id="4Sd-Lj-Izn"/>
+                            <constraint firstItem="vfx-5B-2hX" firstAttribute="bottom" secondItem="Rah-CR-6bH" secondAttribute="bottom" id="85S-GL-DNc"/>
+                            <constraint firstItem="IP6-Ii-EoH" firstAttribute="trailing" secondItem="mT3-bK-aSz" secondAttribute="trailing" constant="-32" id="BIX-zS-srV"/>
+                            <constraint firstItem="Rah-CR-6bH" firstAttribute="top" secondItem="mT3-bK-aSz" secondAttribute="top" constant="56" id="MvV-vJ-A7f"/>
+                            <constraint firstItem="4SJ-L6-tG1" firstAttribute="trailing" secondItem="mT3-bK-aSz" secondAttribute="trailing" constant="-32" id="O0H-6Y-cPz"/>
+                            <constraint firstItem="vfx-5B-2hX" firstAttribute="top" secondItem="mT3-bK-aSz" secondAttribute="top" id="P28-kT-yd8"/>
+                            <constraint firstItem="vfx-5B-2hX" firstAttribute="leading" secondItem="Foh-ct-7g6" secondAttribute="leading" id="WNP-cj-q8P"/>
+                            <constraint firstItem="IP6-Ii-EoH" firstAttribute="top" secondItem="vfx-5B-2hX" secondAttribute="bottom" id="WhI-q8-KEA"/>
+                            <constraint firstItem="vfx-5B-2hX" firstAttribute="trailing" secondItem="Rah-CR-6bH" secondAttribute="trailing" id="Zpz-j8-GdJ"/>
+                            <constraint firstItem="4SJ-L6-tG1" firstAttribute="leading" secondItem="mT3-bK-aSz" secondAttribute="leading" constant="32" id="lGN-Ak-pp1"/>
+                            <constraint firstItem="4SJ-L6-tG1" firstAttribute="top" secondItem="IP6-Ii-EoH" secondAttribute="bottom" id="oAT-jh-ZRT"/>
+                            <constraint firstItem="IP6-Ii-EoH" firstAttribute="leading" secondItem="mT3-bK-aSz" secondAttribute="leading" constant="32" id="sLU-jW-pPw"/>
+                            <constraint firstItem="vfx-5B-2hX" firstAttribute="leading" secondItem="Rah-CR-6bH" secondAttribute="leading" id="vhA-ao-KnE"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="detailLabel" destination="4SJ-L6-tG1" id="xB3-k0-5au"/>
+                        <outlet property="titleLabel" destination="IP6-Ii-EoH" id="2SV-Hg-81g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="81n-Rn-Blb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1997.709923664122" y="-780.28169014084506"/>
         </scene>
         <!-- Results-->
         <scene sceneID="n2M-B1-knA">
@@ -189,7 +410,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Background"/>
-                        <color key="separatorColor" name="Color"/>
+                        <color key="separatorColor" name="AccentColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="totalMortgage" textLabel="nlv-y6-4K3" detailTextLabel="Yvn-3j-W9D" style="IBUITableViewCellStyleValue1" id="A2Z-W5-Thd">
                                 <rect key="frame" x="20" y="55.333332061767578" width="353" height="43.666667938232422"/>
@@ -389,7 +610,14 @@
                             <outlet property="delegate" destination="zhl-nN-VpO" id="0yD-By-JjQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title=" Results" largeTitleDisplayMode="always" id="dPc-jF-vwe"/>
+                    <navigationItem key="navigationItem" title=" Results" largeTitleDisplayMode="always" id="dPc-jF-vwe">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="ywv-d3-LEe">
+                            <color key="tintColor" name="Text"/>
+                            <connections>
+                                <action selector="shareButtonPressed:" destination="zhl-nN-VpO" id="5DW-gg-Sk2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAq-Oo-qfZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -403,6 +631,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nmd-y9-49z">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                            <color key="textColor" name="Text"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -415,20 +647,16 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="Accent colours">
-            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="info.circle" catalog="system" width="128" height="123"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.61599999666213989" green="0.75300002098083496" blue="0.54500001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Background">
             <color red="0.92900002002716064" green="0.94499999284744263" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Color">
-            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="TextGreen">
-            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Text">
+            <color red="0.25099998712539673" green="0.31799998879432678" blue="0.23100000619888306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
