@@ -4,13 +4,17 @@
 //
 //  Created by James Attersley on 05/08/2023.
 //
-
 import Foundation
 
 struct Calculators {
     
     var userResults     = Results()
     var userResultsOver = OverResults()
+    
+    enum CalculationError: Error {
+        case maxOverpayment
+
+    }
     
     //MARK: - Payment Calculators
     
@@ -33,8 +37,8 @@ struct Calculators {
         
         userResults.standardMonthlyInterestRate = (details.standardRate / 100) / 12
         
-        let a = userResults.standardMonthlyInterestRate * pow((1 + userResults.standardMonthlyInterestRate), remainingTermMonths)
-        let b = pow((1 + userResults.standardMonthlyInterestRate), remainingTermMonths) - 1
+        let a = userResults.standardMonthlyInterestRate * pow((1 + userResults.standardMonthlyInterestRate), userResults.numberOfPayments)
+        let b = pow((1 + userResults.standardMonthlyInterestRate), userResults.numberOfPayments) - 1
         
         userResults.paymentsAtStandardRate = floor(details.mortgageLoan * (a / b))
         
@@ -44,47 +48,47 @@ struct Calculators {
         
         return userResults
     }
-    
 
-    //MARK: - Over payment calculator
+    //MARK: - Overpayment Calculator
     
-    mutating func overPaymentCalc(details: LoanDetails, results: Results) -> OverResults {
-//
-//        let annualPayment = userResultsOver.paymentOver * 12
-//        let maxAnnualPayment = annualPayment + (annualPayment / userResultsOver.maxOverPayment)
-//
-
+    mutating func overPaymentCalc(details: LoanDetails, results: Results) throws -> OverResults {
+        
+        let initialTermMonths   = details.intialRateTerm * 12
+        let remainingTermMonths = (details.mortgageTerm * 12) - initialTermMonths
+        
         var over: Double = 0
-        if let overPayment = details.proposedOverPayment { over = overPayment}
+        if let overPayment = details.proposedOverPayment {
+            over = overPayment
+        }
         
         let minAnnualPayment = results.paymentsAtInitialRate * 12
         let maxAnnualPayment = minAnnualPayment + (details.mortgageLoan / userResultsOver.maxOverPayment)
         let proposedAnnual = (results.paymentsAtInitialRate + over) * 12
         
-        var years: Double       = 0
-        var loanRemains: Double = 0
+        var years: Double = 0
+        var loanRemains: Double = results.totalPayabletAtTerm
         
         if proposedAnnual <= maxAnnualPayment {
-            
-            loanRemains = details.mortgageLoan
-            while loanRemains > 0 {
-                loanRemains = loanRemains - proposedAnnual
+            while loanRemains > proposedAnnual {
+                loanRemains -= proposedAnnual
                 years += 1
-                //            } else {
-                //
-                //            print("Error: max overpayment figure exceeded")
             }
-            
-            userResultsOver.termOver = years
-            userResultsOver.totalPayableAtTermOver = userResults.totalPayabletAtTerm - (userResults.totalPayabletAtTerm / (details.mortgageTerm - years))
-            userResultsOver.paymentSavingOver = userResults.totalPayabletAtTerm / (details.mortgageTerm - years)
-            userResultsOver.overPaymentInitial = results.paymentsAtInitialRate + over
-            userResultsOver.overPaymentStandard = results.paymentsAtStandardRate + over
-            
+        } else {
+            throw CalculationError.maxOverpayment
         }
+        
+        let initialPaymentsWithOver     = (results.paymentsAtInitialRate + over) * 12 // * details.intialRateTerm
+        
+        let remainingPaymentsWithOver   = (results.paymentsAtStandardRate + over) * 12 * (remainingTermMonths / 12)
+        
+        userResultsOver.totalPayableAtTermOver  = initialPaymentsWithOver * years // + remainingPaymentsWithOver
+        userResultsOver.termOver                = years
+        userResultsOver.paymentSavingOver       = results.totalPayabletAtTerm - userResultsOver.totalPayableAtTermOver
+        userResultsOver.overPaymentInitial      = results.paymentsAtInitialRate + over
+        userResultsOver.overPaymentStandard     = results.paymentsAtStandardRate + over
+        
         return userResultsOver
     }
-    
 }
         //MARK: - Additional info text function
         

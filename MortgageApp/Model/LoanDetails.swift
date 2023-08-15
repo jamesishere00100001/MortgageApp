@@ -10,11 +10,11 @@ import Foundation
 struct LoanDetails {
     
     var mortgageLoan: Double            = 0
-    var mortgageTerm: Double            = 25
+    var mortgageTerm: Double            = 0
     
     var initialInterestRate: Double     = 0
     var intialRateTerm: Double          = 0
-    var standardRate: Double            = 3.5
+    var standardRate: Double            = 0
 
     var proposedOverPayment: Double?    = 0
 }

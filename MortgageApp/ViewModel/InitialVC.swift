@@ -26,6 +26,15 @@ class InitialVC: UIViewController {
     
     private var info            = Info()
     private var infoData        : [String : String] = [:]
+    
+    enum Errors: String, Error {
+        
+        case maxOverpayment     = "Proposed overpayment exceeds maxiumum allowed within deal."
+        case invalidCharacter   = "Invalid character entered."
+        case tooManyDigits      = "Too many digits entered."
+        case fillAllDetails     = "Please fill all details to proceed."
+        case unknown            = "Uknown error: Please check entered details."
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +46,7 @@ class InitialVC: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-            scrollView.addGestureRecognizer(tapGesture)
+        scrollView.addGestureRecognizer(tapGesture)
         
         scrollView.isScrollEnabled = true
     }
@@ -47,18 +56,18 @@ class InitialVC: UIViewController {
     func checkString(_ userString: String?) -> Double {
         
         if let input = userString {
-            if containsDigit(input) == true {
-                presentError(error: "Invalid character")
+            if containsDigits(input) == true {
+                presentError(error: .invalidCharacter)
             }
             
             if input.count >= 8  {
-                presentError(error: "Too many digits")
+                presentError(error: .tooManyDigits)
             }
             
-            return Double(input)!
+            return Double(input) ?? 0
         }
         
-        presentError(error: "Please fill all details")
+        presentError(error: .fillAllDetails)
         return 0
     }
     
@@ -74,14 +83,16 @@ class InitialVC: UIViewController {
         userDetails.proposedOverPayment     = checkString(proposedOverPaymentField.text)
     }
     
-    func containsDigit(_ input: String) -> Bool {
+    func containsDigits(_ input: String) -> Bool {
         let acceptableEntry = ".*[0-9]+.*"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", acceptableEntry)
+        let predicate       = NSPredicate(format: "SELF MATCHES %@", acceptableEntry)
         return !predicate.evaluate(with: input)
     }
     
-    func presentError(error: String) {
-        let alert = UIAlertController(title: "Oops", message: error, preferredStyle: .alert)
+    //MARK: - Present alert for error
+    
+    func presentError(error: Errors) {
+        let alert        = UIAlertController(title: "Oops", message: error.rawValue, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel)
         
         alert.addAction(cancelAction)
@@ -93,21 +104,21 @@ class InitialVC: UIViewController {
     @IBAction func goButtonPressed(_ sender: UIButton) {
         
         updateUserInputs()
-
-        userResults = calculator.paymentCalc(details: userDetails)
-        userResultsOver = calculator.overPaymentCalc(details: userDetails, results: userResults)
-
-        userResults = calculateResults(userData: userDetails)
+        userResults     = calculator.paymentCalc(details: userDetails)
         
+        do {
+            try userResultsOver = calculator.overPaymentCalc(details: userDetails, results: userResults)
+        } catch Errors.maxOverpayment {
 
+            presentError(error: .maxOverpayment)
+        } catch {
+            
+            presentError(error: .unknown)
+        }
+        
         self.performSegue(withIdentifier: K.resultsSegue, sender: self)
     }
     
-    func calculateResults(userData data: LoanDetails) -> Results {
-        return calculator.paymentCalc(details: data)
-    }
-    
-
     //MARK: - Reset button
     
     @IBAction func resetButtonPressed(_ sender: UIBarButtonItem) {
@@ -172,6 +183,7 @@ class InitialVC: UIViewController {
             destinationVC.userResults       = self.userResults
             destinationVC.userResultsOver   = self.userResultsOver
         } else if segue.identifier == K.infoSegue {
+            
                 let destinationVC = segue.destination as! InfoVC
                 
                 destinationVC.info = self.infoData

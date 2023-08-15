@@ -9,15 +9,16 @@ import UIKit
 
 class InfoVC: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var infoLabel: UINavigationItem!
     
     var info : [String : String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text  = info.keys.first
+        
+        infoLabel.title = info.keys.first
         detailLabel.text = info.values.first
         detailLabel.sizeToFit()
     }

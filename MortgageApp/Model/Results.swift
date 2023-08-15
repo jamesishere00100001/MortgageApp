@@ -18,8 +18,6 @@ struct Results {
     var paymentsAtStandardRate: Double         = 0
     
     var totalPayabletAtTerm: Double            = 0
-//    var payment
-
 }
 
 

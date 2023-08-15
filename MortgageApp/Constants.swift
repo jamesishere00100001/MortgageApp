@@ -19,14 +19,9 @@ struct K {
         static let payMonthly           = "currentMonthly"
         static let payMonthlyNoDeal     = "currentMonthlyNoDeal"
         static let revisedMortgage      = "revisedMortgage"
+        static let interestSaving       = "interestSaving"
         static let revisedTerm          = "revisedTerm"
         static let currentPlusOver      = "currentPlusOver"
         static let currentPlusOverAfter = "currentPlusOverAfter"
-    }
-    
-    struct Info {
-        
-        static let titleText  = ""
-        static let detailText = "Mortgage amount : This the total sum borrowed from the lender at the beginning of the deal. E.g. the amount you paid for the                        property minus any deposit amount contributed."
     }
 }

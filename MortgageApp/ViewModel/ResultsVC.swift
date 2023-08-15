@@ -20,6 +20,7 @@ class ResultsVC: UITableViewController {
                                   [K.Cell.payMonthlyNoDeal],
                                   
                                   [K.Cell.revisedMortgage,
+                                   K.Cell.interestSaving,
                                    K.Cell.revisedTerm,
                                    K.Cell.currentPlusOver,
                                    K.Cell.currentPlusOverAfter]]
@@ -41,6 +42,7 @@ class ResultsVC: UITableViewController {
                                      [currencyString(result.paymentsAtStandardRate)],
                                      
                                      [currencyString(over.totalPayableAtTermOver),
+                                      currencyString(over.paymentSavingOver),
                                       doubleToString(over.termOver),
                                       currencyString(over.overPaymentInitial),
                                       currencyString(over.overPaymentStandard)]]
@@ -65,7 +67,7 @@ class ResultsVC: UITableViewController {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.locale = Locale(identifier: "en_GB")
-        formatter.maximumFractionDigits = 0
+        formatter.maximumFractionDigits = 2
         
         if let currency = formatter.string(from: double as NSNumber) {
             return currency
