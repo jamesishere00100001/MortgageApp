@@ -13,7 +13,6 @@ struct Calculators {
     
     enum CalculationError: Error {
         case maxOverpayment
-
     }
     
     //MARK: - Payment Calculators
@@ -54,10 +53,7 @@ struct Calculators {
     mutating func overPaymentCalc(details: LoanDetails, results: Results) throws -> OverResults {
         
         let initialTermMonths   = details.intialRateTerm * 12
-        let remainingTermMonths = (details.mortgageTerm * 12) - initialTermMonths
-    
-        
-        
+
         var over: Double = 0
         if let overPayment = details.proposedOverPayment {over = overPayment}
         
@@ -68,7 +64,6 @@ struct Calculators {
         
         var years: Double          = 0
         var loanCapital: Double    = details.mortgageLoan
-        var revisedPayment: Double = 0
         
         if proposedAnnual <= maxAnnualPayment {
             while loanCapital > proposedAnnual {
@@ -76,7 +71,6 @@ struct Calculators {
                 years += 1
             
             }
-            revisedPayment = monthlyLoanPayment(loanAmount: loanCapital, interestRate: details.initialInterestRate, loanTerm: (details.mortgageTerm - years)) 
             
         } else {
             throw CalculationError.maxOverpayment
@@ -99,7 +93,6 @@ struct Calculators {
         
         let annualWithOverpayments      = initialPaymentsWithOver + remainingPaymentsWithOver
         
-//        userResultsOver.totalPayableAtTermOver  = revisedPayment
         userResultsOver.totalPayableAtTermOver  = initialPaymentsWithOver + remainingPaymentsWithOver
         userResultsOver.termOver                = years
         userResultsOver.paymentSavingOver       = results.totalPayabletAtTerm - annualWithOverpayments
@@ -109,17 +102,7 @@ struct Calculators {
         return userResultsOver
     }
 }
-        //MARK: - Additional info text function
-        
-//        func additionalInformationText() {
-            //        "You will not pay your mortgage off in the current term. Total payable = \(totalPayable) over \(term) years, paying \(totalMonthly) per month, gives \(totalPayment) total payment. This is \(totalPayable - totalPayment) short."
-            //
-            //            loanDetails.addititonalInfo = "Congratulations you will pay you mortgage off in \(timeLeft)"
-            //
-            //        "Your total payment will be \(loanDetails.loanPlusInterestAtTerm) and you will be mortgage free in \(timeLeft) years."
-        
-    
-//    }
+
 
 
 

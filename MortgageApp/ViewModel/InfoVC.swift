@@ -17,9 +17,8 @@ class InfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        infoLabel.title = info.keys.first
-        detailLabel.text = info.values.first
+        infoLabel.title     = info.keys.first
+        detailLabel.text    = info.values.first
         detailLabel.sizeToFit()
     }
     

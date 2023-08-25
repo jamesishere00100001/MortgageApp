@@ -9,6 +9,7 @@ import Foundation
 
 struct K {
     
+    static let initialSegue             = "goToInitialVC"
     static let resultsSegue             = "goToResultsVC"
     static let infoSegue                = "infoCard"
     

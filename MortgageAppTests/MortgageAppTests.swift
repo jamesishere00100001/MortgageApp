@@ -13,6 +13,7 @@ final class MortgageAppTests: XCTestCase {
     var calculator          = Calculators()
     var enteredLoan         = LoanDetails()
     var calculatedResults   = Results()
+    var initialVC           = InitialVC()
     
     override func setUpWithError() throws {
        
@@ -25,12 +26,8 @@ final class MortgageAppTests: XCTestCase {
         enteredLoan.standardRate        = 8
         enteredLoan.proposedOverPayment = 100
         
-        calculatedResults.initialMonthlyInterestRate = calculator.paymentCalc(details: enteredLoan).initialMonthlyInterestRate
+        calculatedResults.initialMonthlyInterestRate  = calculator.paymentCalc(details: enteredLoan).initialMonthlyInterestRate
         calculatedResults.standardMonthlyInterestRate = calculator.paymentCalc(details: enteredLoan).standardMonthlyInterestRate
-//        calculatedResults.numberOfPayments = calculator.paymentCalc(details: enteredLoan).numberOfPayments
-//        calculatedResults.paymentsAtInitialRate = ca
-//        calculatedResults.paymentsAtStandardRate
-//        calculatedResults.totalPayabletAtTerm
     }
     
     //MARK: - Payment Calculator tests
@@ -64,14 +61,5 @@ final class MortgageAppTests: XCTestCase {
         
         enteredLoan         = LoanDetails()
         calculatedResults   = Results()
-        
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
