@@ -55,35 +55,54 @@ struct Calculators {
         
         let initialTermMonths   = details.intialRateTerm * 12
         let remainingTermMonths = (details.mortgageTerm * 12) - initialTermMonths
+    
+        
         
         var over: Double = 0
-        if let overPayment = details.proposedOverPayment {
-            over = overPayment
-        }
+        if let overPayment = details.proposedOverPayment {over = overPayment}
         
         let minAnnualPayment = results.paymentsAtInitialRate * 12
         let maxAnnualPayment = minAnnualPayment + (details.mortgageLoan / userResultsOver.maxOverPayment)
-        let proposedAnnual = (results.paymentsAtInitialRate + over) * 12
+        let proposedAnnual   = (results.paymentsAtInitialRate + over) * 12
+        let standardPayment  = details.mortgageLoan / results.numberOfPayments
         
-        var years: Double = 0
-        var loanRemains: Double = results.totalPayabletAtTerm
+        var years: Double          = 0
+        var loanCapital: Double    = details.mortgageLoan
+        var revisedPayment: Double = 0
         
         if proposedAnnual <= maxAnnualPayment {
-            while loanRemains > proposedAnnual {
-                loanRemains -= proposedAnnual
+            while loanCapital > proposedAnnual {
+                loanCapital -= (standardPayment + over) * 12
                 years += 1
+            
             }
+            revisedPayment = monthlyLoanPayment(loanAmount: loanCapital, interestRate: details.initialInterestRate, loanTerm: (details.mortgageTerm - years)) 
+            
         } else {
             throw CalculationError.maxOverpayment
         }
         
-        let initialPaymentsWithOver     = (results.paymentsAtInitialRate + over) * 12 // * details.intialRateTerm
+        func monthlyLoanPayment(loanAmount: Double, interestRate: Double, loanTerm: Double) -> Double {
+
+            let monthlyInterestRate = (interestRate / 100) / 12
+            let numberOfPayments    = (loanTerm - years) * 12
+
+            let x = monthlyInterestRate * pow((1 + monthlyInterestRate), numberOfPayments)
+            let y = pow((1 + monthlyInterestRate), numberOfPayments) - 1
+
+            return floor(loanAmount * (x / y))
+        }
         
-        let remainingPaymentsWithOver   = (results.paymentsAtStandardRate + over) * 12 * (remainingTermMonths / 12)
+        let initialPaymentsWithOver     = (results.paymentsAtInitialRate + over) * 12 * details.intialRateTerm
         
-        userResultsOver.totalPayableAtTermOver  = initialPaymentsWithOver * years // + remainingPaymentsWithOver
+        let remainingPaymentsWithOver   = (results.paymentsAtStandardRate + over) * 12 * (years - details.intialRateTerm)
+        
+        let annualWithOverpayments      = initialPaymentsWithOver + remainingPaymentsWithOver
+        
+//        userResultsOver.totalPayableAtTermOver  = revisedPayment
+        userResultsOver.totalPayableAtTermOver  = initialPaymentsWithOver + remainingPaymentsWithOver
         userResultsOver.termOver                = years
-        userResultsOver.paymentSavingOver       = results.totalPayabletAtTerm - userResultsOver.totalPayableAtTermOver
+        userResultsOver.paymentSavingOver       = results.totalPayabletAtTerm - annualWithOverpayments
         userResultsOver.overPaymentInitial      = results.paymentsAtInitialRate + over
         userResultsOver.overPaymentStandard     = results.paymentsAtStandardRate + over
         
