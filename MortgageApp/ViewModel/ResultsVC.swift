@@ -13,11 +13,10 @@ class ResultsVC: UITableViewController {
     var userDetails     = LoanDetails()
     var userResultsOver = OverResults()
     
-    var cellSeries: [[String]] = [[K.Cell.totalMortage,
+    var cellSeries: [[String]] = [[K.Cell.totalMortgage,
                                    K.Cell.totalTerm,
-                                   K.Cell.payMonthly],
-                                  
-                                  [K.Cell.payMonthlyNoDeal],
+                                   K.Cell.payMonthly,
+                                   K.Cell.payMonthlyNoDeal],
                                   
                                   [K.Cell.revisedMortgage,
                                    K.Cell.interestSaving,
@@ -25,10 +24,22 @@ class ResultsVC: UITableViewController {
                                    K.Cell.currentPlusOver,
                                    K.Cell.currentPlusOverAfter]]
     
+    let cellLabel: [[String]]  = [["Total mortgage payment",
+                                   "Years left",
+                                   "Monthly payment with current interest deal",
+                                   "Monthly payment outside your current deal"],
+                                  
+                                  ["Total mortgage payment",
+                                   "Interest savings in total",
+                                   "Years left",
+                                   "Monthly payment with current interest deal",
+                                   "Monthly payment outside your current deal"]]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 70
+        tableView.estimatedRowHeight = 72.0
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     //MARK: - Format user input and calculated data
@@ -37,16 +48,14 @@ class ResultsVC: UITableViewController {
         
         let cellArray: [[String]] = [[currencyString(result.totalPayabletAtTerm),
                                       doubleToString(details.mortgageTerm),
-                                      currencyString(result.paymentsAtInitialRate)],
-                                     
-                                     [currencyString(result.paymentsAtStandardRate)],
+                                      currencyString(result.paymentsAtInitialRate),
+                                      currencyString(result.paymentsAtStandardRate)],
                                      
                                      [currencyString(over.totalPayableAtTermOver),
                                       currencyString(over.paymentSavingOver),
                                       doubleToString(over.termOver),
                                       currencyString(over.overPaymentInitial),
                                       currencyString(over.overPaymentStandard)]]
-        
         return cellArray
     }
     
@@ -67,7 +76,7 @@ class ResultsVC: UITableViewController {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.locale = Locale(identifier: "en_GB")
-        formatter.maximumFractionDigits = 2
+        formatter.maximumFractionDigits = 0
         
         if let currency = formatter.string(from: double as NSNumber) {
             return currency
@@ -105,11 +114,9 @@ class ResultsVC: UITableViewController {
         
         switch section {
         case 0:
-            return "Current results"
+            return "Your current deal result without overpayment"
         case 1:
-            return "Out of deal"
-        case 2:
-            return "Overpayment results"
+            return "Results with £\(Int(userDetails.proposedOverPayment ?? 0)) monthly overpayment"
         default:
             return nil
         }
@@ -119,12 +126,16 @@ class ResultsVC: UITableViewController {
         
         let cellData = formatData(details: userDetails, result: userResults, over: userResultsOver)
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellSeries[indexPath.section][indexPath.row], for: indexPath)
-        let results = cellData[indexPath.section][indexPath.row]
+        let cell     = tableView.dequeueReusableCell(withIdentifier: cellSeries[indexPath.section][indexPath.row], for: indexPath)
+        let label    = cellLabel[indexPath.section][indexPath.row]
+        let results  = cellData[indexPath.section][indexPath.row]
+        
+        cell.textLabel?.text       = label
         cell.detailTextLabel?.text = results
         
         return cell
     }
 }
+
 
 

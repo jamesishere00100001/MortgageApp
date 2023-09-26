@@ -51,10 +51,8 @@ struct Calculators {
     //MARK: - Overpayment Calculator
     
     mutating func overPaymentCalc(details: LoanDetails, results: Results) throws -> OverResults {
-        
-        let initialTermMonths   = details.intialRateTerm * 12
 
-        var over: Double = 0
+        var over: Double   = 0
         if let overPayment = details.proposedOverPayment {over = overPayment}
         
         let minAnnualPayment = results.paymentsAtInitialRate * 12
@@ -62,14 +60,13 @@ struct Calculators {
         let proposedAnnual   = (results.paymentsAtInitialRate + over) * 12
         let standardPayment  = details.mortgageLoan / results.numberOfPayments
         
-        var years: Double          = 0
+        var years      : Double    = 1
         var loanCapital: Double    = details.mortgageLoan
         
         if proposedAnnual <= maxAnnualPayment {
             while loanCapital > proposedAnnual {
                 loanCapital -= (standardPayment + over) * 12
                 years += 1
-            
             }
             
         } else {
