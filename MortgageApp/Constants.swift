@@ -15,7 +15,7 @@ struct K {
     
     struct Cell {
         
-        static let totalMortage         = "totalMortgage"
+        static let totalMortgage        = "totalMortgage"
         static let totalTerm            = "totalTerm"
         static let payMonthly           = "currentMonthly"
         static let payMonthlyNoDeal     = "currentMonthlyNoDeal"
