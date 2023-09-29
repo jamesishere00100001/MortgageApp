@@ -148,7 +148,6 @@ class InitialVC: UIViewController {
             presentError(error: .maxOverpayment)
             
         }
-        
         self.performSegue(withIdentifier: K.resultsSegue, sender: self)
     }
     
