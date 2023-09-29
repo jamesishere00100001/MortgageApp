@@ -102,6 +102,11 @@ class ResultsVC: UITableViewController {
     
     //MARK: - Tableview delegate and datasource
     
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor(named: "Text")
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return cellSeries.count
     }
