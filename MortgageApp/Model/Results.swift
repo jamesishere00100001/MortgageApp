@@ -11,11 +11,17 @@ struct Results {
     
     var numberOfPayments           : Double = 0
     
+    var numberOfInitalPayments     : Double = 0
+    var numberOfStandardPayments   : Double = 0
+    
     var initialMonthlyInterestRate : Double = 0
     var standardMonthlyInterestRate: Double = 0
     
     var paymentsAtInitialRate      : Double = 0
     var paymentsAtStandardRate     : Double = 0
+    
+    var totalInitialPayable        : Double = 0
+    var totalStandardPayable       : Double = 0
     
     var totalPayabletAtTerm        : Double = 0
 }

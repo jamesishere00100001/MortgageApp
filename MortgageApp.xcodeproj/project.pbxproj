@@ -13,8 +13,6 @@
 		DD42F4342A7E8CB900248C2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD42F4332A7E8CB900248C2A /* Assets.xcassets */; };
 		DD42F4372A7E8CB900248C2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD42F4352A7E8CB900248C2A /* LaunchScreen.storyboard */; };
 		DD42F4422A7E8CBA00248C2A /* MortgageAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F4412A7E8CBA00248C2A /* MortgageAppTests.swift */; };
-		DD42F44C2A7E8CBA00248C2A /* MortgageAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F44B2A7E8CBA00248C2A /* MortgageAppUITests.swift */; };
-		DD42F44E2A7E8CBA00248C2A /* MortgageAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F44D2A7E8CBA00248C2A /* MortgageAppUITestsLaunchTests.swift */; };
 		DD42F45D2A7E8CFC00248C2A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F45C2A7E8CFC00248C2A /* Constants.swift */; };
 		DD42F4602A7E8D5100248C2A /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F45F2A7E8D5100248C2A /* InitialVC.swift */; };
 		DD42F4622A7E8D5B00248C2A /* ResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD42F4612A7E8D5B00248C2A /* ResultsVC.swift */; };
@@ -35,13 +33,6 @@
 			remoteGlobalIDString = DD42F4262A7E8CB800248C2A;
 			remoteInfo = MortgageApp;
 		};
-		DD42F4482A7E8CBA00248C2A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DD42F41F2A7E8CB800248C2A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DD42F4262A7E8CB800248C2A;
-			remoteInfo = MortgageApp;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -54,9 +45,6 @@
 		DD42F4382A7E8CB900248C2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD42F43D2A7E8CBA00248C2A /* MortgageAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MortgageAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD42F4412A7E8CBA00248C2A /* MortgageAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageAppTests.swift; sourceTree = "<group>"; };
-		DD42F4472A7E8CBA00248C2A /* MortgageAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MortgageAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD42F44B2A7E8CBA00248C2A /* MortgageAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageAppUITests.swift; sourceTree = "<group>"; };
-		DD42F44D2A7E8CBA00248C2A /* MortgageAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DD42F45C2A7E8CFC00248C2A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DD42F45F2A7E8D5100248C2A /* InitialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
 		DD42F4612A7E8D5B00248C2A /* ResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsVC.swift; sourceTree = "<group>"; };
@@ -84,13 +72,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD42F4442A7E8CBA00248C2A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -99,7 +80,6 @@
 			children = (
 				DD42F4292A7E8CB800248C2A /* MortgageApp */,
 				DD42F4402A7E8CBA00248C2A /* MortgageAppTests */,
-				DD42F44A2A7E8CBA00248C2A /* MortgageAppUITests */,
 				DD42F4282A7E8CB800248C2A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,7 +89,6 @@
 			children = (
 				DD42F4272A7E8CB800248C2A /* MortgageApp.app */,
 				DD42F43D2A7E8CBA00248C2A /* MortgageAppTests.xctest */,
-				DD42F4472A7E8CBA00248C2A /* MortgageAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,15 +115,6 @@
 				DD42F4412A7E8CBA00248C2A /* MortgageAppTests.swift */,
 			);
 			path = MortgageAppTests;
-			sourceTree = "<group>";
-		};
-		DD42F44A2A7E8CBA00248C2A /* MortgageAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				DD42F44B2A7E8CBA00248C2A /* MortgageAppUITests.swift */,
-				DD42F44D2A7E8CBA00248C2A /* MortgageAppUITestsLaunchTests.swift */,
-			);
-			path = MortgageAppUITests;
 			sourceTree = "<group>";
 		};
 		DD42F45A2A7E8CD200248C2A /* View */ = {
@@ -224,24 +194,6 @@
 			productReference = DD42F43D2A7E8CBA00248C2A /* MortgageAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DD42F4462A7E8CBA00248C2A /* MortgageAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DD42F4572A7E8CBA00248C2A /* Build configuration list for PBXNativeTarget "MortgageAppUITests" */;
-			buildPhases = (
-				DD42F4432A7E8CBA00248C2A /* Sources */,
-				DD42F4442A7E8CBA00248C2A /* Frameworks */,
-				DD42F4452A7E8CBA00248C2A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DD42F4492A7E8CBA00248C2A /* PBXTargetDependency */,
-			);
-			name = MortgageAppUITests;
-			productName = MortgageAppUITests;
-			productReference = DD42F4472A7E8CBA00248C2A /* MortgageAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -256,10 +208,6 @@
 						CreatedOnToolsVersion = 14.3.1;
 					};
 					DD42F43C2A7E8CBA00248C2A = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = DD42F4262A7E8CB800248C2A;
-					};
-					DD42F4462A7E8CBA00248C2A = {
 						CreatedOnToolsVersion = 14.3.1;
 						TestTargetID = DD42F4262A7E8CB800248C2A;
 					};
@@ -280,7 +228,6 @@
 			targets = (
 				DD42F4262A7E8CB800248C2A /* MortgageApp */,
 				DD42F43C2A7E8CBA00248C2A /* MortgageAppTests */,
-				DD42F4462A7E8CBA00248C2A /* MortgageAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -297,13 +244,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		DD42F43B2A7E8CBA00248C2A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DD42F4452A7E8CBA00248C2A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -340,15 +280,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD42F4432A7E8CBA00248C2A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DD42F44E2A7E8CBA00248C2A /* MortgageAppUITestsLaunchTests.swift in Sources */,
-				DD42F44C2A7E8CBA00248C2A /* MortgageAppUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -356,11 +287,6 @@
 			isa = PBXTargetDependency;
 			target = DD42F4262A7E8CB800248C2A /* MortgageApp */;
 			targetProxy = DD42F43E2A7E8CBA00248C2A /* PBXContainerItemProxy */;
-		};
-		DD42F4492A7E8CBA00248C2A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DD42F4262A7E8CB800248C2A /* MortgageApp */;
-			targetProxy = DD42F4482A7E8CBA00248C2A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -510,7 +436,7 @@
 				DEVELOPMENT_TEAM = DAP856JGQY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MortgageApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Mortgage App";
+				INFOPLIST_KEY_CFBundleDisplayName = "Mortgage Save";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -544,7 +470,7 @@
 				DEVELOPMENT_TEAM = DAP856JGQY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MortgageApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Mortgage App";
+				INFOPLIST_KEY_CFBundleDisplayName = "Mortgage Save";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -614,48 +540,6 @@
 			};
 			name = Release;
 		};
-		DD42F4582A7E8CBA00248C2A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DAP856JGQY;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jattersley.MortgageAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				TEST_TARGET_NAME = MortgageApp;
-			};
-			name = Debug;
-		};
-		DD42F4592A7E8CBA00248C2A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DAP856JGQY;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jattersley.MortgageAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				TEST_TARGET_NAME = MortgageApp;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -682,15 +566,6 @@
 			buildConfigurations = (
 				DD42F4552A7E8CBA00248C2A /* Debug */,
 				DD42F4562A7E8CBA00248C2A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DD42F4572A7E8CBA00248C2A /* Build configuration list for PBXNativeTarget "MortgageAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DD42F4582A7E8CBA00248C2A /* Debug */,
-				DD42F4592A7E8CBA00248C2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

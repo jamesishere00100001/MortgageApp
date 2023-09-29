@@ -145,7 +145,7 @@ class InitialVC: UIViewController {
         do {
             try userResultsOver = calculator.overPaymentCalc(details: userDetails, results: userResults)
         } catch Errors.maxOverpayment {
-
+            
             presentError(error: .maxOverpayment)
         } catch {
             

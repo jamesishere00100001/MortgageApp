@@ -13,6 +13,7 @@ final class MortgageAppTests: XCTestCase {
     var calculator          = Calculators()
     var enteredLoan         = LoanDetails()
     var calculatedResults   = Results()
+    var over                = OverResults()
     var initialVC           = InitialVC()
     
     override func setUpWithError() throws {
@@ -22,9 +23,11 @@ final class MortgageAppTests: XCTestCase {
         enteredLoan.mortgageLoan        = 500000
         enteredLoan.mortgageTerm        = 25
         enteredLoan.initialInterestRate = 5
-        enteredLoan.intialRateTerm      = 25
+        enteredLoan.intialRateTerm      = 2
         enteredLoan.standardRate        = 8
         enteredLoan.proposedOverPayment = 100
+        
+        calculatedResults = calculator.paymentCalc(details: enteredLoan)
         
         calculatedResults.initialMonthlyInterestRate  = calculator.paymentCalc(details: enteredLoan).initialMonthlyInterestRate
         calculatedResults.standardMonthlyInterestRate = calculator.paymentCalc(details: enteredLoan).standardMonthlyInterestRate
@@ -44,7 +47,7 @@ final class MortgageAppTests: XCTestCase {
     
     func testTotalPayableOutput() {
         
-        XCTAssertEqual(calculator.paymentCalc(details: enteredLoan).totalPayabletAtTerm, 876600, accuracy: 1, "Total payment at loan incorrect.")
+        XCTAssertEqual(calculator.paymentCalc(details: enteredLoan).totalPayabletAtTerm, 1135212, accuracy: 1, "Total payment at loan incorrect.")
     }
     
     //MARK: - Overpayment Calculator tests
@@ -56,10 +59,24 @@ final class MortgageAppTests: XCTestCase {
         XCTAssertThrowsError(try calculator.overPaymentCalc(details: enteredLoan, results: calculatedResults))
     }
     
+    func testNormalMortgageTerm() {
+        
+        XCTAssertEqual(try calculator.overPaymentCalc(details: enteredLoan, results: calculatedResults).paymentSavingOver, 46308, accuracy: 1, "Interest savings figure returned is incorrect.")
+    }
+    
+    func testShortMortgageTerm() {
+        
+        var alteredLoan = enteredLoan
+        alteredLoan.mortgageTerm = 10
+        let alteredResults = calculator.paymentCalc(details: alteredLoan)
+
+        XCTAssertEqual(try calculator.overPaymentCalc(details: alteredLoan, results: alteredResults).paymentSavingOver, 24264, accuracy: 1, "Interest savings figure returned is incorrect.")
+    }
+    
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         
         enteredLoan         = LoanDetails()
         calculatedResults   = Results()
+        over                = OverResults()
     }
 }
