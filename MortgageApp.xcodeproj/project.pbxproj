@@ -104,7 +104,6 @@
 				DD42F4332A7E8CB900248C2A /* Assets.xcassets */,
 				DD42F45C2A7E8CFC00248C2A /* Constants.swift */,
 				DD42F4382A7E8CB900248C2A /* Info.plist */,
-				DD9B83D42AB2101100221B53 /* Fonts */,
 			);
 			path = MortgageApp;
 			sourceTree = "<group>";
@@ -147,13 +146,6 @@
 				DD42F4692A7E8DAB00248C2A /* Results.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		DD9B83D42AB2101100221B53 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

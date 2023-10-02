@@ -51,8 +51,7 @@ struct Calculators {
     }
 
     //MARK: - Overpayment Calculator
-    
-    
+
     mutating func overPaymentCalc(details: LoanDetails, results: Results) throws -> OverResults {
         
         var over: Double   = 0
@@ -71,12 +70,6 @@ struct Calculators {
         var loan                = details.mortgageLoan
         var currentInterestRate = details.initialInterestRate
         
-        if over > 0 {
-            
-            let principalReduction = over
-            loan -= principalReduction
-        }
-        
         if proposedInitalAnnual > maxAnnualPayment {
     
             throw CalculationError.maxOverpayment
@@ -92,6 +85,10 @@ struct Calculators {
                 monthlyPrincipalPayment = proposedInitialMonthly - monthlyInterestPayment
             } else if remainingTerm > 0 {
                 monthlyPrincipalPayment = proposedStandardMonthly - monthlyInterestPayment
+            }
+
+            if over > 0 {
+                monthlyPrincipalPayment += over
             }
             
             if initialTerm > 0 {

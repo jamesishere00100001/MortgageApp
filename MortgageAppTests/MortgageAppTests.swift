@@ -61,7 +61,7 @@ final class MortgageAppTests: XCTestCase {
     
     func testNormalMortgageTerm() {
         
-        XCTAssertEqual(try calculator.overPaymentCalc(details: enteredLoan, results: calculatedResults).paymentSavingOver, 46308, accuracy: 1, "Interest savings figure returned is incorrect.")
+        XCTAssertEqual(try calculator.overPaymentCalc(details: enteredLoan, results: calculatedResults).paymentSavingOver, 127347, accuracy: 1, "Interest savings figure returned is incorrect.")
     }
     
     func testShortMortgageTerm() {
@@ -70,7 +70,7 @@ final class MortgageAppTests: XCTestCase {
         alteredLoan.mortgageTerm = 10
         let alteredResults = calculator.paymentCalc(details: alteredLoan)
 
-        XCTAssertEqual(try calculator.overPaymentCalc(details: alteredLoan, results: alteredResults).paymentSavingOver, 24264, accuracy: 1, "Interest savings figure returned is incorrect.")
+        XCTAssertEqual(try calculator.overPaymentCalc(details: alteredLoan, results: alteredResults).paymentSavingOver, 36396, accuracy: 1, "Interest savings figure returned is incorrect.")
     }
     
     override func tearDownWithError() throws {

@@ -30,7 +30,7 @@ class ResultsVC: UITableViewController {
                                    "Monthly payment outside your current deal"],
                                   
                                   ["Total mortgage payment",
-                                   "Interest savings in total",
+                                   "Gross total saving",
                                    "Years left",
                                    "Monthly payment with current interest deal",
                                    "Monthly payment outside your current deal"]]
